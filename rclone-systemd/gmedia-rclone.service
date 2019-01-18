@@ -1,7 +1,7 @@
 [Unit]
 Description=RClone Service
 PartOf=gmedia.service
-RequiresMountsFor=/data
+RequiresMountsFor=/mnt/merged/media
 
 [Service]
 Type=notify
