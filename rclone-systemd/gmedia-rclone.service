@@ -5,24 +5,23 @@ RequiresMountsFor=/data
 
 [Service]
 Type=notify
-Environment=RCLONE_CONFIG=/data/rclone/rclone.conf
+Environment=RCLONE_CONFIG=/home/ruben/docker/rclone/configurations/rclone.conf
 ExecStart=/usr/bin/rclone mount gcrypt: /GD \
    --allow-other \
-   --bind 192.168.1.30 \
    --buffer-size 256M \
    --dir-cache-time 72h \
    --drive-chunk-size 32M \
-   --log-level INFO \
-   --log-file /home/felix/logs/rclone.log \
+   --log-level DEBUG \
+   --log-file /home/ruben/docker/rclone/configurations/rcloneservice.log \
    --timeout 1h \
    --umask 002 \
    --vfs-read-chunk-size 128M \
-   --vfs-read-chunk-size-limit off \
-   --rc 
+   --vfs-read-chunk-size-limit off
+
 ExecStop=/bin/fusermount -uz /GD
 Restart=on-failure
-User=felix
-Group=felix
+User=ruben
+Group=docker
 
 [Install]
 WantedBy=gmedia.service

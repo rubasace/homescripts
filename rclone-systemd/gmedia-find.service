@@ -22,8 +22,8 @@ Type=oneshot
 ExecStart=/usr/bin/rclone rc vfs/refresh recursive=true
 
 RemainAfterExit=yes
-User=felix
-Group=felix
+User=ruben
+Group=docker
 
 [Install]
 # Components of this application should be started at boot time
